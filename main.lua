@@ -281,16 +281,13 @@ do
                             if arrow.Data.Length > 0 then
                                 fastWait(arrow.Data.Length + (library.flags.autoDelay / 1000))
                             else
+                                fireSignal(scrollHandler, userInputService.InputEnded, { KeyCode = keys[position], UserInputType = Enum.UserInputType.Keyboard }, false)
+                                arrow.Marked = nil;
                                 fastWait(library.flags.autoDelay / 1000) 
                             end
 
                             fireSignal(scrollHandler, userInputService.InputEnded, { KeyCode = keys[position], UserInputType = Enum.UserInputType.Keyboard }, false)
                             arrow.Marked = nil;
-                      else
-                            fireSignal(scrollHandler, userInputService.InputEnded, { KeyCode = keys[position], UserInputType = Enum.UserInputType.Keyboard }, false)
-                            arrow.Marked = nil;
-                      end
-                        end)
                     end
                 end
             end
