@@ -289,6 +289,7 @@ do
                       else
                             fireSignal(scrollHandler, userInputService.InputEnded, { KeyCode = keys[position], UserInputType = Enum.UserInputType.Keyboard }, false)
                             arrow.Marked = nil;
+                      end
                         end)
                     end
                 end
