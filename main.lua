@@ -281,13 +281,12 @@ do
                             if arrow.Data.Length > 0 then
                                 fastWait(arrow.Data.Length + (library.flags.autoDelay / 1000))
                             else
-                                fireSignal(scrollHandler, userInputService.InputEnded, { KeyCode = keys[position], UserInputType = Enum.UserInputType.Keyboard }, false)
-                                arrow.Marked = nil;
                                 fastWait(library.flags.autoDelay / 1000) 
                             end
 
                             fireSignal(scrollHandler, userInputService.InputEnded, { KeyCode = keys[position], UserInputType = Enum.UserInputType.Keyboard }, false)
                             arrow.Marked = nil;
+                        end)
                     end
                 end
             end
@@ -325,16 +324,19 @@ do
         end
 
         local folder = window:AddFolder('Credits') do
-            folder:AddLabel({ text = 'Tripz * Jan - UI library' })
-            folder:AddLabel({ text = 'Tripz * Wally - Script' })
-            folder:AddLabel({ text = 'Sezei * Tripz - Contributor'})
+            folder:AddLabel({ text = 'Jan - UI library' })
+            folder:AddLabel({ text = 'wally - Script' })
+            folder:AddLabel({ text = 'Sezei - Contributor'})
         end
 
-        window:AddLabel({ text = 'Version 1.6a' })
-        window:AddLabel({ text = 'Updated 11/5/21' })
+        window:AddLabel({ text = 'Version 1.5a' })
+        window:AddLabel({ text = 'Updated 9/26/21' })
         window:AddDivider()
         window:AddButton({ text = 'Unload script', callback = function() 
             shared._unload()
+        end })
+        window:AddButton({ text = 'Copy discord', callback = function() 
+              setclipboard("https://wally.cool/discord")  
         end })
         window:AddDivider()
         window:AddBind({ text = 'Menu toggle', key = Enum.KeyCode.Delete, callback = function() library:Close() end })
